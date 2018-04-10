@@ -14,9 +14,7 @@ if o.DoModal()==1:
 #%% Import CSV file
     df=pd.read_csv(filename,'|',header=0,
                    names=['SCJ_Code','Forenames','Surname','Gender','Course_Title','Course_Code','Route_Code','SCE_Year','Status','MOA','Block','Dept_Code','Dept','Fac_Code','Fac','Home_Email','KCL_Email','Username','HESA_Start_Date','Exp_End_Date','SPR_Batch','SCE_Batch','PRS_1','PRS_Name','PRS_2','PRS_2_Name'])
-    df['Student_Number']=df.SCJ_Code.str.split('/',expand=True)[1]
-#    df.Student_Number=df.SCJ_Code.rstrip('/')   
-#    df.transaction_date=df.description.str.split(' ON ',expand=True)[1]
+    df['Student_Number']=df.SCJ_Code.str.split('/',expand=True)[0] #split and then return column 0 (firts column)
     df=df[['Student_Number','SCJ_Code','Forenames','Surname','Gender','Course_Title','Course_Code','Route_Code','SCE_Year','Status','MOA','Block','Dept_Code','Dept','Fac_Code','Fac','Home_Email','KCL_Email','Username','HESA_Start_Date','Exp_End_Date','SPR_Batch','SCE_Batch','PRS_1','PRS_Name','PRS_2','PRS_2_Name']]
     
 #%%
